@@ -5,8 +5,7 @@ import {
   ElementRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { randomExtend } from '@common/utils';
-import { DecorationBase } from 'ngx-datav/core';
+import { DecorationBase, randomExtend } from 'ngx-datav/core';
 
 @Component({
   selector: 'dv-decoration6',
