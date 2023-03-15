@@ -1,0 +1,38 @@
+<svg
+  [attr.width]="svgWH[0]"
+  [attr.height]="svgWH[1]"
+  attr.style="transform:scale({{ svgScale[0] }},{{ svgScale[1] }});"
+>
+  <ng-container *ngFor="let point of points; index as i">
+    <rect
+      [attr.fill]="_colors[point[2] > 0.5 ? 0 : 1]"
+      [attr.x]="point[0] - halfRectWidth"
+      [attr.y]="point[1] - heights[i] / 2"
+      [attr.width]="rectWidth"
+      [attr.height]="heights[i]"
+    >
+      <animate
+        attributeName="y"
+        attr.values="{{ point[1] - minHeights[i] / 2 }};{{
+          point[1] - heights[i] / 2
+        }};{{ point[1] - minHeights[i] / 2 }}"
+        attr.dur="{{ randoms[i] }}s"
+        keyTimes="0;0.5;1"
+        calcMode="spline"
+        keySplines="0.42,0,0.58,1;0.42,0,0.58,1"
+        begin="0s"
+        repeatCount="indefinite"
+      />
+      <animate
+        attributeName="height"
+        attr.values="{{ minHeights[i] }};{{ heights[i] }};{{ minHeights[i] }}"
+        attr.dur="{{ randoms[i] }}s"
+        keyTimes="0;0.5;1"
+        calcMode="spline"
+        keySplines="0.42,0,0.58,1;0.42,0,0.58,1"
+        begin="0s"
+        repeatCount="indefinite"
+      />
+    </rect>
+  </ng-container>
+</svg>

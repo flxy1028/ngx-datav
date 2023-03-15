@@ -1,0 +1,38 @@
+<div class="header" *ngIf="_config.header.length" [style]="headerStyle">
+  <div
+    class="header-item"
+    *ngFor="let headerItem of _config.header; index as i"
+    [style.width.px]="widths[i]"
+    [align]="aligns[i]"
+    [innerHTML]="domSanitizer.bypassSecurityTrustHtml(headerItem)"
+  ></div>
+</div>
+
+<div
+  class="rows"
+  [style.height.px]="
+    height - (_config.header.length ? _config.headerHeight : 0)
+  "
+>
+  <div
+    class="row-item"
+    *ngFor="let row of rows; index as ri"
+    [style]="{
+      height: heights[ri] + 'px',
+      lineHeight: heights[ri] + 'px',
+      backgroundColor:
+        row.rowIndex % 2 === 0 ? _config.evenRowBGC : _config.oddRowBGC
+    }"
+  >
+    <div
+      class="ceil"
+      *ngFor="let ceil of row.ceils; index as ci"
+      [style.width.px]="widths[ci]"
+      [align]="aligns[ci]"
+      [innerHTML]="domSanitizer.bypassSecurityTrustHtml(ceil)"
+      (click)="click.next({ri, ci, row, ceil})"
+      (mouseenter)="handleHover(true, {ri, ci, row, ceil})"
+      (mouseleave)="handleHover(false)"
+    ></div>
+  </div>
+</div>
