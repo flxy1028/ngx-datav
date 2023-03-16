@@ -1,0 +1,22 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "ngx-datav/*": ["./*"]
+    },
+    "alwaysStrict": true,
+    "strictFunctionTypes": true
+  },
+  "angularCompilerOptions": {
+    "strictInputAccessModifiers": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true,
+    "fullTemplateTypeCheck": true,
+    "strictTemplates": true,
+    "strictInjectionParameters": true
+  },
+  "include": ["./**/*.ts"]
+}

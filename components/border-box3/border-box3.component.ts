@@ -1,13 +1,11 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   ElementRef,
   ChangeDetectorRef,
   ViewEncapsulation,
 } from '@angular/core';
 import { BorderBase } from 'ngx-datav/core';
-
 @Component({
   selector: 'dv-border-box3',
   templateUrl: './border-box3.component.html',
