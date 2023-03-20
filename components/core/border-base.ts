@@ -8,7 +8,7 @@ import {
 import { AutoResize } from './auto-size';
 @Directive({
   host: {
-    '[class]': "'block h-full w-full relative dv-border-box-'+boxNum",
+    '[class]': "'dv-border-box'+boxNum",
   },
 })
 export abstract class BorderBase extends AutoResize implements OnInit {

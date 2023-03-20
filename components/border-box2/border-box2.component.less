@@ -1,12 +1,16 @@
-.fl-border-svg-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-
-  & > polyline {
-    fill: none;
-    stroke-width: 1;
+@import "../style/reset.less";
+.dv-border-box2 {
+  .reset-component();
+  position: relative;
+  .dv-border-svg-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    & > polyline {
+      fill: none;
+      stroke-width: 1;
+    }
   }
 }

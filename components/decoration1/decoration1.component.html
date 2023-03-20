@@ -1,7 +1,7 @@
 <svg
   [attr.width]="svgWH[0]"
   [attr.height]="svgWH[1]"
-  style.transform="transform: scale({{ svgScale[0] }},{{ svgScale[1] }});"
+  [style.transform]="'scale(' + svgScale[0] + ',' + svgScale[1] + ')'"
 >
   <ng-container *ngFor="let point of points; index as i">
     <rect

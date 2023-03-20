@@ -25,6 +25,7 @@ export class AutoResize
   ngAfterViewInit(): void {
     this.updateDomSize();
     this.resizeLintener();
+    this.observerDomResize(this.eleRef.nativeElement, this.updateDomSize);
   }
   ngOnDestroy(): void {
     this.next();
@@ -35,6 +36,16 @@ export class AutoResize
     fromEvent(window, 'resize')
       .pipe(observeOn(animationFrameScheduler), takeUntil(this))
       .subscribe(this.updateDomSize);
+  }
+  observerDomResize(dom: HTMLElement, callback: () => void) {
+    const observer = new MutationObserver(callback);
+    observer.observe(dom, {
+      attributes: true,
+      attributeFilter: ['class', 'style'],
+      attributeOldValue: true,
+    });
+
+    return observer;
   }
   private updateDomSize = () => {
     const { eleRef } = this;

@@ -3,7 +3,7 @@ import { AutoResize } from './auto-size';
 
 @Directive({
   host: {
-    '[class]': "'block h-full w-full dv-decoration-'+decorationNum",
+    '[class]': "'dv-decoration-'+decorationNum",
   },
 })
 export abstract class DecorationBase extends AutoResize implements OnInit {
